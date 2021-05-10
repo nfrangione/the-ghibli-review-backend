@@ -1,10 +1,12 @@
 class MoviesController < ApplicationController
     def index
-        @movies = Movie.all
+        movies = Movie.all
+        render json: movies, only: [:title, :release_date, :image_url]
     end
 
     def show
-        @movie = Movie.find_by(id: params[:id])
+        movie = Movie.find_by(id: params[:id])
+        render json: movie, except: [:created_at, :updated_at]
     end
 
 
