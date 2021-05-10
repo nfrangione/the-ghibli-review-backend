@@ -26,7 +26,7 @@ movies.each do |movie|
     Movie.create(
         title: movie["title"],
         original_title: movie["original_title"],
-        original_title_romanized: movie["original_title_romanized"],
+        original_title_romanized: movie["original_title_romanised"],
         description: movie["description"],
         director: movie["director"],
         producer: movie["producer"],
