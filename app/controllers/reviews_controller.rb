@@ -21,13 +21,17 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        Review.destroy(params[:id])
-        render status :ok
+        review = Review.find_by(id: params[:id]) 
+        review.destroy
+        # render status :ok
     end
+
+    
+    
 
     private
 
     def review_params
-        params.require(:review).require(:title, :content, :score, :user_id, :movie_id)
+        params.require(:review).permit(:title, :content, :score, :user_id, :movie_id)
     end
 end
